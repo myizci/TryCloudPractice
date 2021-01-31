@@ -5,6 +5,7 @@ import com.trycloud.pages.LoginPage;
 import com.trycloud.utilities.BrowserUtils;
 import com.trycloud.utilities.ConfigurationReader;
 import com.trycloud.utilities.Driver;
+import com.trycloud.utilities.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -18,12 +19,12 @@ public class TestBase {
 
     @BeforeMethod
     public void setUpMethod(){
-        driver = Driver.get();
+        driver = Driver.get(); //call static method
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(ConfigurationReader.getProperty("url"));
         driver.manage().window().maximize();
         LoginPage loginpage = new LoginPage();
-        loginpage.login();
+        loginpage.login(); // call instance method
     }
 
     @AfterMethod

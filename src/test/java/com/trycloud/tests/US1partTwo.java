@@ -25,8 +25,7 @@ WebDriver driver;
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.get(ConfigurationReader.getProperty("url"));
         driver.manage().window().maximize();
-       // LoginPage loginpage = new LoginPage();
-       // loginpage.login();
+
     }
 
 
@@ -40,7 +39,7 @@ WebDriver driver;
         String actualErrorMessage = wrongPasswordMessage;
        String expectedErrorMessage = "Wrong username or password.";
 
-        //Assert.assertTrue(actualErrorMessage.equals(expectedErrorMessage));
+        Assert.assertEquals(expectedErrorMessage, actualErrorMessage);
 
     }
 

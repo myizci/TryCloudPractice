@@ -13,6 +13,10 @@ public class Driver {//This is temporary, we will learn a better way
     }
 
     public static WebDriver get(){
+
         return driver;
     }
 }
+
+
+//Driver.get()
