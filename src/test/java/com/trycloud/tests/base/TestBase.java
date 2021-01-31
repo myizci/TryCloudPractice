@@ -25,6 +25,7 @@ public class TestBase {
         driver.manage().window().maximize();
         LoginPage loginpage = new LoginPage();
         loginpage.login(); // call instance method
+       // driver.get(ConfigurationReader.getProperty("url2"));
     }
 
     @AfterMethod
