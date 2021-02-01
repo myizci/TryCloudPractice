@@ -12,6 +12,13 @@ public class MainPage extends BasePage{
     public String calendarXpath = "(//a[@href='/index.php/apps/calendar/'])[1]";
     public String calendarDatePickButton = "//div[@class='datepicker-button-section']//button[2]";
     public String notesXpath = "(//a[@href='/index.php/apps/notes/'])[1]";
+    // US7
+    // magnifierIcon
+    public String magnifierCssSelectorIcon="svg.material-design-icon__svg";
+    // search field:  input.unified-search__form-input
+    public String inputSearchFormCssSelector="input.unified-search__form-input";
+    // found search items list:
+    public String foundSearchItemsListCssSelector="div.header-menu__content";
 
 
     public String expectedFilesTitle = "Files - Trycloud - QA";
