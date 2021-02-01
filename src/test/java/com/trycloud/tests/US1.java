@@ -1,6 +1,6 @@
 package com.trycloud.tests;
 
-import com.trycloud.pages.LoginPageOnly;
+
 import com.trycloud.tests.base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;

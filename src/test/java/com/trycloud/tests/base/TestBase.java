@@ -30,7 +30,7 @@ public class TestBase {
 
     @AfterMethod
     public void tearDown() {
-        BrowserUtils.sleep(3);
+        BrowserUtils.sleep(20);
         driver.close();
     }
 }
