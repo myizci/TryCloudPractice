@@ -42,8 +42,8 @@ public class US2 extends TestBase {
         BrowserUtils.sleep(5);
 
 
-        driver.findElement(By.xpath(mainPage.notesXpath)).click();
-        Assert.assertTrue(driver.getTitle().equals(mainPage.expectedNotesTitle), "Notes page access failed");
+        driver.findElement(By.xpath(mainPage.expectedCirclesTitle)).click();
+        Assert.assertTrue(driver.getTitle().equals(mainPage.expectedCirclesTitle), "Notes page access failed");
 
 
 //        System.out.println(driver.getTitle());

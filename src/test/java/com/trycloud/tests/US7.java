@@ -9,6 +9,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 public class US7 extends TestBase {
@@ -39,6 +41,22 @@ public class US7 extends TestBase {
             // wait until it finds the item
             BrowserUtils.sleep(2);
             // make a file out of what is found
+
+            /*
+            // check out this option: it is simpler than having all the searchValues in a list.
+            String searchValue = ConfigurationReader.getProperty("searchValue");
+                searchBox.sendKeys(searchValue + Keys.ENTER);
+                //Assert title contains the value
+                //actual --> actual page, browser
+                String actualTitle = Driver.getDriver().getTitle();
+                //expected --> comes from documentation
+                String expectedInTitle = searchValue;
+                BrowserUtils.sleep(8 );
+                Assert.assertTrue(actualTitle.contains(expectedInTitle));
+
+             */
+
+
             ArrayList<WebElement> foundItems_WE_List= (ArrayList<WebElement>) driver.findElements(By.cssSelector(mainPage.foundSearchItemsListCssSelector));
             // clean up the WE list for non search items
             foundItems_WE_List.removeIf(p->!(p.getText().contains(searchItem)));
@@ -55,8 +73,8 @@ public class US7 extends TestBase {
         }
 
 
-
     }
+
 }
 
 /*
