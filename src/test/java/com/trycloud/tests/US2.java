@@ -18,11 +18,15 @@ public class US2 extends TestBase {
 
         MainPage mainPage = new MainPage();
 
+        Assert.assertTrue(driver.getTitle().equals(mainPage.expectedDashboardTitle));
+        BrowserUtils.sleep(5);
+
+        driver.findElement(By.xpath(mainPage.filesXpath)).click();
         Assert.assertTrue(driver.getTitle().equals(mainPage.expectedFilesTitle));
 
        BrowserUtils.sleep(3);
        driver.findElement(By.xpath(mainPage.photosXpath)).click();
-       Assert.assertFalse(driver.getTitle().equals(mainPage.expectedPhotosTitle), "Photos page access failed");
+       Assert.assertTrue(driver.getTitle().equals(mainPage.expectedPhotosTitle), "Photos page access failed");
         BrowserUtils.sleep(3);
         driver.findElement(By.xpath(mainPage.activityXpath)).click();
         Assert.assertTrue(driver.getTitle().equals(mainPage.expectedActivityTitle), "Activity page access failed");
@@ -34,16 +38,21 @@ public class US2 extends TestBase {
 
         driver.findElement(By.xpath(mainPage.contactsXpath)).click();
         Assert.assertTrue(driver.getTitle().equals(mainPage.expectedContactsTitle), "Contacts page access failed");
+        BrowserUtils.sleep(3);
+
         driver.findElement(By.xpath(mainPage.calendarXpath)).click();
-
-
-        String currentDate = driver.findElement(By.xpath("//div[@class='datepicker-button-section']//button[2]")).getText();
-        Assert.assertTrue(driver.getTitle().equals(currentDate+mainPage.expectedCalendarTitle), "Calendar page access failed");
+        String currentDate = driver.findElement(By.xpath(mainPage.expectedCalendarTitle)).getText();
+        Assert.assertTrue(driver.getTitle().equals(mainPage.expectedCalendarTitle), "Calendar page access failed");
         BrowserUtils.sleep(5);
 
 
         driver.findElement(By.xpath(mainPage.expectedCirclesTitle)).click();
-        Assert.assertTrue(driver.getTitle().equals(mainPage.expectedCirclesTitle), "Notes page access failed");
+        Assert.assertTrue(driver.getTitle().equals(mainPage.expectedCirclesTitle), "Circles page access failed");
+        BrowserUtils.sleep(3);
+
+        driver.findElement(By.xpath(mainPage.expectedDeckTitle)).click();
+        Assert.assertTrue(driver.getTitle().equals(mainPage.expectedDeckTitle), "Deck page access failed");
+        BrowserUtils.sleep(3);
 
 
 //        System.out.println(driver.getTitle());

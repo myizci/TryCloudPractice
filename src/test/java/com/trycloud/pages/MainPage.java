@@ -12,7 +12,8 @@ public class MainPage extends BasePage{
     public String filesXpath = "(//*[@class='app-icon'])[2]";
     public String photosXpath = "(//a[@href='/index.php/apps/photos/'])[1]"; //also:  (//*[@class='app-icon'])[3]
     public String activityXpath = "(//a[@href='/index.php/apps/activity/'])[1]"; //also:  (//*[@class='app-icon'])[4]
-    public String talkXpath = "(//a[@href='/index.php/apps/talks/'])[1]";  //also:  (//*[@class='app-icon'])[5]
+   // public String talkXpath = "(//a[@href='/index.php/apps/talks/'])[1]";  //also:  (//*[@class='app-icon'])[5]
+    public String talkXpath = "(//*[@class='app-icon'])[5]";  //also:  (//*[@class='app-icon'])[5]
     public String contactsXpath = "(//a[@href='/index.php/apps/contacts/'])[1]"; //also:  (//*[@class='app-icon'])[6]
     public String circlesXpath ="(//a[@href='/index.php/apps/circles/'])[1]";  //also:  (//*[@class='app-icon'])[7]
     public String calendarXpath = "(//a[@href='/index.php/apps/calendar/'])[1]";  //also:  (//*[@class='app-icon'])[8]
