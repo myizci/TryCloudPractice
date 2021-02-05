@@ -73,7 +73,6 @@ public class US7_Ghalip extends TestBase {
 
         }
 
-
     }
 
 }
