@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class US7 extends TestBase {
+public class US7_Ghalip extends TestBase {
 
     //1. Login as a user: login is included in the TestBase.
 

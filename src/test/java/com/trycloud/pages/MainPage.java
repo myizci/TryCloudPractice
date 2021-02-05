@@ -17,7 +17,7 @@ public class MainPage extends BasePage{
     public String circlesXpath ="(//*[@class='app-icon'])[8]"; // also:  (//a[@href='/index.php/apps/circles/'])[1]
     public String calendarXpath = "(//*[@class='app-icon'])[9]";  //also:  (//a[@href='/index.php/apps/calendar/'])[1]
     public String deckXpath = "(//*[@class='app-icon'])[10]";  //also:  (//a[@href='/index.php/apps/deck/'])[1]
-    // US7
+    // US7_Ghalip
     // magnifierIcon
  //  svg.material-design-icon__svg
     public String magnifierCssSelectorIcon="svg.material-design-icon__svg";

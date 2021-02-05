@@ -5,7 +5,7 @@ import com.trycloud.tests.base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class US1 extends TestBase {
+public class US1_TC1_Omer extends TestBase {
     @Test
     public void TC1_verifyLogin(){
 

@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class US1partTwo {
+public class US1_TC2_Omer {
 WebDriver driver;
 
 

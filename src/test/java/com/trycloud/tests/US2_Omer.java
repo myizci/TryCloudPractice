@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class US2 extends TestBase {
+public class US2_Omer extends TestBase {
 
     @Test
     public void TC1_reachAllModules() {
