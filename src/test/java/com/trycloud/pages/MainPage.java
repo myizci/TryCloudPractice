@@ -8,19 +8,18 @@ import java.time.format.DateTimeFormatter;
 
 public class MainPage extends BasePage{
 
-    public String dashboardXpath = "(//*[@class='app-icon'])[1]";
-    public String filesXpath = "(//*[@class='app-icon'])[2]";
-    public String photosXpath = "(//a[@href='/index.php/apps/photos/'])[1]"; //also:  (//*[@class='app-icon'])[3]
-    public String activityXpath = "(//a[@href='/index.php/apps/activity/'])[1]"; //also:  (//*[@class='app-icon'])[4]
-   // public String talkXpath = "(//a[@href='/index.php/apps/talks/'])[1]";  //also:  (//*[@class='app-icon'])[5]
-    public String talkXpath = "(//*[@class='app-icon'])[5]";  //also:  (//*[@class='app-icon'])[5]
-    public String contactsXpath = "(//a[@href='/index.php/apps/contacts/'])[1]"; //also:  (//*[@class='app-icon'])[6]
-    public String circlesXpath ="(//a[@href='/index.php/apps/circles/'])[1]";  //also:  (//*[@class='app-icon'])[7]
-    public String calendarXpath = "(//a[@href='/index.php/apps/calendar/'])[1]";  //also:  (//*[@class='app-icon'])[8]
-    //public String calendarDatePickButton = "//div[@class='datepicker-button-section']//button[2]";
-    public String deckXpath = "(//a[@href='/index.php/apps/deck/'])[1]";  //also:  (//*[@class='app-icon'])[9]
+    public String dashboardXpath = "(//*[@class='app-icon'])[1]"; //also:   (//a[@href='/index.php/apps/dashboard/'])[1]
+    public String filesXpath = "(//*[@class='app-icon'])[2]";  //also:   (//a[@href='/index.php/apps/files/'])[1]
+    public String photosXpath = "(//*[@class='app-icon'])[3]"; //also:   (//a[@href='/index.php/apps/photos/'])[1]
+    public String activityXpath = "(//*[@class='app-icon'])[4]"; //also:  (//a[@href='/index.php/apps/activity/'])[1]
+    public String talkXpath = "(//*[@class='app-icon'])[5]";  //also:  (//a[@href='/index.php/apps/talks/'])[1]
+    public String contactsXpath = "(//*[@class='app-icon'])[7]"; //also:  (//a[@href='/index.php/apps/contacts/'])[1]
+    public String circlesXpath ="(//*[@class='app-icon'])[8]"; // also:  (//a[@href='/index.php/apps/circles/'])[1]
+    public String calendarXpath = "(//*[@class='app-icon'])[9]";  //also:  (//a[@href='/index.php/apps/calendar/'])[1]
+    public String deckXpath = "(//*[@class='app-icon'])[10]";  //also:  (//a[@href='/index.php/apps/deck/'])[1]
     // US7
     // magnifierIcon
+ //  svg.material-design-icon__svg
     public String magnifierCssSelectorIcon="svg.material-design-icon__svg";
     // search field:  input.unified-search__form-input
     public String inputSearchFormCssSelector="input.unified-search__form-input";
@@ -38,7 +37,7 @@ public class MainPage extends BasePage{
     public String expectedTalkTitle="Talk - Trycloud QA";
     public String expectedContactsTitle="Contacts - Trycloud QA";
     public String expectedCirclesTitle="Circles - Trycloud QA";
-    public String expectedCalendarTitle=monthYear+" - Calendar - Trycloud QA";
+    public String expectedCalendarTitle="February 2021 - Calendar - Trycloud QA";
     public String expectedDeckTitle= "Deck - Trycloud QA";
 
    //public  WebElement actualModuleName  = driver.findElement(By.xpath("//a[contains(.,'All files')]"));

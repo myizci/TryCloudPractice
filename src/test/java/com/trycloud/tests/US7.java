@@ -3,7 +3,10 @@ package com.trycloud.tests;
 import com.trycloud.pages.MainPage;
 import com.trycloud.tests.base.TestBase;
 import com.trycloud.utilities.BrowserUtils;
+import com.trycloud.utilities.ConfigurationReader;
+import com.trycloud.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -22,11 +25,11 @@ public class US7 extends TestBase {
         MainPage mainPage=new MainPage();
         driver.findElement(By.cssSelector(mainPage.magnifierCssSelectorIcon)).click();
 
-        // searchable items: [Files, Photo, Activity, Talk, Contact, Calender, Note, User],
-        // all these items were added first on tryCloud
+        // searchable items: [ Dashboard, File, Photo, Activity, Talk, Mail, Contacts,  Circles, Calendar, Deck],
+        // all these items were added first on tryCloud!
         // any items added on tryCloud, can be added to the array below
         // searchable_items_array=sarr
-        String[] sarr={"Files", "Photos", "Activity", "Talk", "Contact", "Calendar", "Notes", "User"};
+        String[] sarr={"Dashboard", "File", "Photo", "Activity", "Talk", "Mail", "Contacts",  "Circles", "Calendar", "Deck"};
 
         // 3. Search any existing file/folder/user name
         for (int i = 0; i < sarr.length; i++) {
@@ -42,8 +45,8 @@ public class US7 extends TestBase {
 
             /*
             // check out this option: it is simpler than having all the searchValues in a list.
-            String searchValue = ConfigurationReader.getProperty("searchValue");
-                searchBox.sendKeys(searchValue + Keys.ENTER);
+            String searchValue = ConfigurationReader.getProperty("searchItem");
+                searchBox.sendKeys(searchItem + Keys.ENTER);
                 //Assert title contains the value
                 //actual --> actual page, browser
                 String actualTitle = Driver.getDriver().getTitle();
