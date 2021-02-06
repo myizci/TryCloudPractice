@@ -11,7 +11,7 @@ public class LoginPage extends BasePage{
 
 public  void login (){
     driver.findElement(By.xpath(loginUserNameBoxXpath)).clear(); // this is optional
-    driver.findElement(By.xpath(loginUserNameBoxXpath)).sendKeys(ConfigurationReader.getProperty("user2"));
+    driver.findElement(By.xpath(loginUserNameBoxXpath)).sendKeys(ConfigurationReader.getProperty("user1"));
     driver.findElement(By.xpath(loginPasswordBoxXpath)).clear();
     driver.findElement(By.xpath(loginPasswordBoxXpath)).sendKeys(ConfigurationReader.getProperty("password"));
     driver.findElement(By.xpath(loginButton)).click();
