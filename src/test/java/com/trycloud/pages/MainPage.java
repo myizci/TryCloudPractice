@@ -1,8 +1,5 @@
 package com.trycloud.pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 public class MainPage extends BasePage {
 
     public String filesXpath = "(//a[@href='/index.php/apps/files/'])[1]";
@@ -41,6 +38,7 @@ public class MainPage extends BasePage {
     public String expectedDeckTitle = "Deck - Trycloud QA";
 
     //public  WebElement actualModuleName  = driver.findElement(By.xpath("//a[contains(.,'All files')]"));
+    //US3_7
 
 
 }

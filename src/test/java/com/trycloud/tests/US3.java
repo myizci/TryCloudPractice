@@ -7,7 +7,6 @@ import com.trycloud.utilities.BrowserUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -26,7 +25,7 @@ driver.findElement(By.xpath(mainPage.filesXpath)).click();
         WebElement uploadFile = driver.findElement(By.xpath(mainPage.addFileButtonXpath));
         WebElement file = driver.findElement(By.xpath(mainPage.addFileButtonXpath));
 
-        String path = "/Users/guestaccount/Desktop/Collections Framework Hierarchy (1).png";
+        String path = "\u202AC:\\Users\\gisa_\\Desktop\\Screenshot 2020-12-29 204944.png";
        uploadFile.sendKeys(path);
     }
 
