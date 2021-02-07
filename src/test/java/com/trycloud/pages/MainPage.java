@@ -36,6 +36,7 @@ public class MainPage extends BasePage {
     public String expectedContactsTitle = "Contacts - Trycloud QA";
     public String expectedCalendarTitle = " - Calendar - Trycloud QA";
     public String expectedDeckTitle = "Deck - Trycloud QA";
+    public String mainPageFilesAndFolders = "//span[@class='innernametext']";
 
 
     //US3_7
