@@ -7,7 +7,6 @@ import com.trycloud.utilities.BrowserUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -42,7 +41,7 @@ driver.findElement(By.xpath(mainPage.filesXpath)).click();
         String name = faker.name().firstName();
         driver.findElement(By.xpath(mainPage.newFolderNameXpath)).sendKeys(name+ Keys.ENTER);
         BrowserUtils.sleep(3);
-        driver.navigate().refresh();//refresh page to add thenew folder to the list
+        driver.navigate().refresh();//refresh page to add the asenew folder to the list
         boolean folderFlag=true;
         List<WebElement> folders=  driver.findElements(By.xpath(mainPage.foldersListXpath));
        for(WebElement each:folders){
