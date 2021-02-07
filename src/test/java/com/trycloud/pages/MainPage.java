@@ -45,4 +45,5 @@ public class MainPage extends BasePage {
     public String commentFolderXpath = "//a[@id='commentsTabView']";
     public String commentBoxXpath = "(//div[@contenteditable='true'])[2]";
     public String submitButtonXpath = "//input[@class='submit icon-confirm has-tooltip']";
+    public String folderAndFilesXpath = "//span[@class='innernametext']";
 }
