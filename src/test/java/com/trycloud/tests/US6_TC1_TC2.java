@@ -31,8 +31,7 @@ public class US6_TC1_TC2 extends TestBase {
         String actualDeckTitle = Driver.get().getTitle();
         String expectedDeckTitle = "Deck - Trycloud QA";
 
-//        System.out.println("actualDeckTitle = " + actualDeckTitle);
-//        System.out.println("expectedDeckTitle = " + expectedDeckTitle);
+
 
         Assert.assertEquals(mainPage.expectedDeckTitle, actualDeckTitle);
     }
@@ -86,5 +85,3 @@ public class US6_TC1_TC2 extends TestBase {
 
 }
 
-//(//a[@aria-label='Deck'])[1]
-//*[@id='app-navigation-vue']/ul/div/form/input[1]
