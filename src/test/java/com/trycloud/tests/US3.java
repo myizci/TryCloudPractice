@@ -115,6 +115,7 @@ public class US3 extends TestBase {
         driver.navigate().refresh();
 
         List<WebElement> filesAndFolders = driver.findElements(By.xpath(mainPage.mainPageFilesAndFolders));
+// Assertion needed!
 
         for (WebElement eachElement : filesAndFolders) {
             System.out.println(eachElement.getText());
