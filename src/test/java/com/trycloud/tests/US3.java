@@ -147,7 +147,7 @@ public class US3 extends TestBase {
             }
         }
 
-        //  Assert.assertFalse(folderFlag);
+         Assert.assertFalse(folderFlag);
     }
 }
 
