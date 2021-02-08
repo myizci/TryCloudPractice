@@ -20,8 +20,7 @@ public class US3_TC3_4 extends TestBase {     // Gulistan
     //5.Verify the chosen file is listed on the table
     //(Pre-condition: there should be at least 1 file is uploaded)
 
-
-        @Test
+            @Test
            public void TC3_addToFavorites() {
 
             MainPage mainPage = new MainPage();
@@ -43,7 +42,6 @@ public class US3_TC3_4 extends TestBase {     // Gulistan
            System.out.println("fileAddedToFavorite = " + fileAddedToFavorite);
             Assert.assertTrue(fileAddedToFavoriteWE.isDisplayed());
 
-
         }
 
 
@@ -54,9 +52,7 @@ public class US3_TC3_4 extends TestBase {     // Gulistan
     //4.Verify that the file is removed from Favorites sub-module’s table.
     //(Pre-condition: there should be at least 1 file is added to favorites table)
 
-    // comment: when i click on favorite submodule file not dissapeared
-
-    @Test
+        @Test
         public void TC4_removeFromFavorites(){
 
             MainPage mainPage = new MainPage();
@@ -75,16 +71,6 @@ public class US3_TC3_4 extends TestBase {     // Gulistan
                System.out.println("File is been removed");
            }
 
-
-
         }
 
-
-
-
-
 }
-/*
-//
-
- */
