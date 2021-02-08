@@ -17,7 +17,7 @@ public class US1 extends TestBase {
         MainPage mainPage = new MainPage();
         //System.out.println(driver.getTitle());
         String actualTitle = driver.getTitle();
-        String expectedTitle = "Dashboard - Trycloud - QA";
+        String expectedTitle = "Dashboard - Trycloud QA";
         Assert.assertTrue(mainPage.expectedDashboardTitle.equals(expectedTitle));
     }
 

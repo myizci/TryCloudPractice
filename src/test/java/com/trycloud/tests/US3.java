@@ -7,7 +7,6 @@ import com.trycloud.utilities.BrowserUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -20,7 +19,7 @@ public class US3 extends TestBase {
 
 
         MainPage mainPage = new MainPage();
-driver.findElement(By.xpath(mainPage.filesXpath)).click();
+        driver.findElement(By.xpath(mainPage.filesXpath)).click();
         driver.findElement(By.xpath(mainPage.plusButtonXpath)).click();
 
         WebElement uploadFile = driver.findElement(By.xpath(mainPage.addFileButtonXpath));
