@@ -38,7 +38,7 @@ public class US3_TC3_4 extends TestBase {     // Gulistan
            WebElement fileAddedToFavoriteWE=Driver.get().findElement(By.xpath(mainPage.fileAddedToFavoriteXpath));
             //file added to favorite folder: String/Text
            String fileAddedToFavorite=fileAddedToFavoriteWE.getText();
-            // what is added
+            // what is added to favorite
            System.out.println("fileAddedToFavorite = " + fileAddedToFavorite);
             Assert.assertTrue(fileAddedToFavoriteWE.isDisplayed());
 
