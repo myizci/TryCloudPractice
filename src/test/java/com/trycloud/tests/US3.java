@@ -36,9 +36,9 @@ public class US3 extends TestBase {
 
         // list of favorites(rows): (//tbody)[3]/tr; a row in favorites: (//tbody)[3]/tr[1]
         //file added to favorite folder; WebElement
-        WebElement fileAddedToFavoriteWE=Driver.get().findElement(By.xpath(mainPage.fileAddedToFavoriteXpath));
+        WebElement fileAddedToFavoriteWE = Driver.get().findElement(By.xpath(mainPage.fileAddedToFavoriteXpath));
         //file added to favorite folder: String/Text
-        String fileAddedToFavorite=fileAddedToFavoriteWE.getText();
+        String fileAddedToFavorite = fileAddedToFavoriteWE.getText();
         // what is added to favorite
         System.out.println("fileAddedToFavorite = " + fileAddedToFavorite);
         Assert.assertTrue(fileAddedToFavoriteWE.isDisplayed());
@@ -54,7 +54,7 @@ public class US3 extends TestBase {
     //(Pre-condition: there should be at least 1 file is added to favorites table)
 
     @Test
-    public void TC4_removeFromFavorites(){
+    public void TC4_removeFromFavorites() {
 
         MainPage mainPage = new MainPage();
         Driver.get().findElement(By.xpath(mainPage.filesXpath)).click();
@@ -67,13 +67,11 @@ public class US3 extends TestBase {
         try {
             Driver.get().findElement(By.xpath(mainPage.fileAddedToFavoriteXpath));
             System.out.println("file exist");
-        }
-        catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             System.out.println("File is been removed");
         }
 
     }
-
 
 
     @Test
@@ -179,7 +177,6 @@ public class US3 extends TestBase {
     }
 
 
-
     @Test
     public void TC6_Create_Verify_Folder() {
         Faker faker = new Faker();
@@ -205,8 +202,9 @@ public class US3 extends TestBase {
             }
         }
 
-         Assert.assertFalse(folderFlag);
+        Assert.assertFalse(folderFlag);
     }
+
     @Test// Done by Dragisa
     public void testCase7_UploadingAFile() throws AWTException {
         //1. Login as a user: login is included in the TestBase.
@@ -283,7 +281,40 @@ public class US3 extends TestBase {
         Assert.assertTrue(fileFlag);
 
     }
-        @Test
+    @Test
+    public void test_DeleteAFile(){//Done By Khojasta
+
+        //1.Login as a user
+        // Login as a user: login is included in the TestBase.
+        MainPage mainPage = new MainPage();
+        driver.findElement(By.xpath(mainPage.filesXpath)).click();
+        BrowserUtils.sleep(2);
+
+        //2.Click action-icon from any file on the page
+        //ActionIcon locator in Main page Line 66 public String //actionIconXpath = "(//span[@class='icon icon-more'])[2]";
+        driver.findElement(By.xpath(mainPage.actionIconXpath)).click();
+        BrowserUtils.sleep(2);
+
+        //3.Choose “delete files” option
+        //Deleted page Locator in Main page line 67     public String //trashbinXpath = "//li[@data-id='trashbin']";
+        driver.findElement(By.xpath(mainPage.trashbinXpath)).click();
+        BrowserUtils.sleep(2);
+
+
+        //4.Click deleted files on the left bottom corner
+        //Deleted page Locator in Main page line 68 public  String //deletedFilesXpath = "//a[@class='nav-icon-trashbin svg active']";
+        driver.findElement(By.xpath(mainPage.deletedFilesXpath)).click();
+        BrowserUtils.sleep(2);
+
+        //5.Verify the deleted file is displayed no the page.
+
+        WebElement deletedFile = driver.findElement(By.xpath("(//a[.='Deleted files'])"));
+        Assert.assertTrue(deletedFile.isDisplayed());
+
+
+
+    }
+    @Test
     public void testCase8_2_writingAComment() {//Done by Dragisa
 
         //Test case #8 - verify users can write comments to files/folders.
@@ -291,7 +322,6 @@ public class US3 extends TestBase {
         MainPage mainPage = new MainPage();
         Faker faker = new Faker();
         String folderName = faker.name().firstName();
-
 
 
         driver.findElement(By.xpath(mainPage.filesXpath)).click();
@@ -303,7 +333,7 @@ public class US3 extends TestBase {
 
         driver.findElement(By.xpath(mainPage.addFolderButtonXpath)).click();
 
-        driver.findElement(By.xpath(mainPage.newFolderNameXpath)).sendKeys(folderName+ Keys.ENTER);
+        driver.findElement(By.xpath(mainPage.newFolderNameXpath)).sendKeys(folderName + Keys.ENTER);
 
         BrowserUtils.sleep(2);
         driver.navigate().refresh();
@@ -314,18 +344,14 @@ public class US3 extends TestBase {
         String folderName2 = folderName;
 
 
-        for(WebElement each : actionList){
+        for (WebElement each : actionList) {
             String eachName = each.getText();
-            WebElement threeDots = driver.findElement(By.xpath("//span[.='"+eachName+"']/../..//span[@class='icon icon-more']"));
-            if(each.getText().equals(folderName2)){
+            WebElement threeDots = driver.findElement(By.xpath("//span[.='" + eachName + "']/../..//span[@class='icon icon-more']"));
+            if (each.getText().equals(folderName2)) {
                 threeDots.click();
             }
 
         }
-
-
-
-
 
 
         //3. Click details
@@ -357,8 +383,35 @@ public class US3 extends TestBase {
 
         }
 
+    }
+    @Test
+    public void test_ChangeAppSettings() {// done by khojasta
+
+        //1.Login as a user
+        // Login as a user: login is included in the TestBase.
+        MainPage mainPage = new MainPage();
+        driver.findElement(By.xpath(mainPage.filesXpath)).click();
+        BrowserUtils.sleep(2);
+
+        // 2.Click Settings on the left bottom corner
+        // 'Settings' - locator in Main page Line 72: public String SettingsXpath = "//button[@class='settings-button opened']";
+        driver.findElement(By.xpath(mainPage.SettingsXpath)).click();
+        BrowserUtils.sleep(3);
+
+        //3.Verify user can click any buttons.
+        WebElement showHiddenFiles = driver.findElement(By.xpath("//label[@for='showhiddenfilesToggle']"));
+        showHiddenFiles.click();
+
+        BrowserUtils.sleep(2);
+
+        if (showHiddenFiles.isEnabled()) {
+            Assert.assertTrue(showHiddenFiles.isDisplayed());
+        } else {
+            Assert.assertTrue(!showHiddenFiles.isDisplayed());
+        }
 
 
     }
 }
+
 
