@@ -68,5 +68,11 @@ public class MainPage extends BasePage {
     public String deletedFilesXpath = "//a[@class='nav-icon-trashbin svg active']";
     public String deletedFileXpath = "(//a[.='Deleted files'])";
 
+    //US3_TC9
+    public String SettingsXpath = "//button[@class='settings-button']";
+
+
+
+
 
 }

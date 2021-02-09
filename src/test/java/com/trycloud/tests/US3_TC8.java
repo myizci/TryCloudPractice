@@ -43,7 +43,7 @@ public class US3_TC8 extends TestBase {
         WebElement deletedFile = driver.findElement(By.xpath("(//a[.='Deleted files'])"));
         Assert.assertTrue(deletedFile.isDisplayed());
 
-        driver.close();
+
 
         }
 
