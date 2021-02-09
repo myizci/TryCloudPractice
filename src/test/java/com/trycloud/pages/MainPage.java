@@ -19,6 +19,16 @@ public class MainPage extends BasePage {
     public String foldersListXpath = "//span[@class='innernametext']";
     public String newFolderNameXpath = "//input[@id='view13-input-folder']";
 
+    //US3-tc3,4
+
+    public String actionIcon2Xpath = "(//span[@class='icon icon-more'])[2]";
+    public String actionIcon1Xpath = "(//a[@class='action action-menu permanent'])[1]";
+    public String addToFavoriteXpath ="//a[@class='menuitem action action-favorite permanent']";
+    public String removeFromFavoriteXpath ="//span[.='Remove from favorites']";
+    public String favoriteSubModuleXpath = "Favorites";
+    public String fileAddedToFavoriteXpath = "(//tbody)[3]/tr";
+    public String RemoveFromFavoriteXpath = "//span[.='Remove from favorites']";
+
     // US7
     // magnifierIcon
     public String magnifierCssSelectorIcon = "svg.material-design-icon__svg";
