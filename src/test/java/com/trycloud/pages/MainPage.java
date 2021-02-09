@@ -1,5 +1,7 @@
 package com.trycloud.pages;
 
+import com.trycloud.tests.US3_TC8;
+
 public class MainPage extends BasePage {
 
     public String filesXpath = "(//a[@href='/index.php/apps/files/'])[1]";
@@ -56,4 +58,15 @@ public class MainPage extends BasePage {
     public String commentBoxXpath = "(//div[@contenteditable='true'])[2]";
     public String submitButtonXpath = "//input[@class='submit icon-confirm has-tooltip']";
     public String folderAndFilesXpath = "//span[@class='innernametext']";
+
+    //US3_7
+
+    //US3_TC8
+
+    public String actionnIconXpath = "(//span[@class='icon icon-more'])[2]";
+    public String trashbinXpath = "//li[@data-id='trashbin']";
+    public String deletedFilesXpath = "//a[@class='nav-icon-trashbin svg active']";
+    public String deletedFileXpath = "(//a[.='Deleted files'])";
+
+
 }
