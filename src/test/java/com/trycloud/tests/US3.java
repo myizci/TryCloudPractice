@@ -281,7 +281,39 @@ public class US3 extends TestBase {
         Assert.assertTrue(fileFlag);
 
     }
+    @Test
+    public void test_DeleteAFile(){//Done By Khojasta
 
+        //1.Login as a user
+        // Login as a user: login is included in the TestBase.
+        MainPage mainPage = new MainPage();
+        driver.findElement(By.xpath(mainPage.filesXpath)).click();
+        BrowserUtils.sleep(2);
+
+        //2.Click action-icon from any file on the page
+        //ActionIcon locator in Main page Line 66 public String //actionIconXpath = "(//span[@class='icon icon-more'])[2]";
+        driver.findElement(By.xpath(mainPage.actionIconXpath)).click();
+        BrowserUtils.sleep(2);
+
+        //3.Choose “delete files” option
+        //Deleted page Locator in Main page line 67     public String //trashbinXpath = "//li[@data-id='trashbin']";
+        driver.findElement(By.xpath(mainPage.trashbinXpath)).click();
+        BrowserUtils.sleep(2);
+
+
+        //4.Click deleted files on the left bottom corner
+        //Deleted page Locator in Main page line 68 public  String //deletedFilesXpath = "//a[@class='nav-icon-trashbin svg active']";
+        driver.findElement(By.xpath(mainPage.deletedFilesXpath)).click();
+        BrowserUtils.sleep(2);
+
+        //5.Verify the deleted file is displayed no the page.
+
+        WebElement deletedFile = driver.findElement(By.xpath("(//a[.='Deleted files'])"));
+        Assert.assertTrue(deletedFile.isDisplayed());
+
+
+
+    }
     @Test
     public void testCase8_2_writingAComment() {//Done by Dragisa
 
@@ -350,6 +382,34 @@ public class US3 extends TestBase {
             Assert.assertFalse(commentFlag);
 
         }
+
+    }
+    @Test
+    public void test_ChangeAppSettings() {// done by khojasta
+
+        //1.Login as a user
+        // Login as a user: login is included in the TestBase.
+        MainPage mainPage = new MainPage();
+        driver.findElement(By.xpath(mainPage.filesXpath)).click();
+        BrowserUtils.sleep(2);
+
+        // 2.Click Settings on the left bottom corner
+        // 'Settings' - locator in Main page Line 72: public String SettingsXpath = "//button[@class='settings-button opened']";
+        driver.findElement(By.xpath(mainPage.SettingsXpath)).click();
+        BrowserUtils.sleep(3);
+
+        //3.Verify user can click any buttons.
+        WebElement showHiddenFiles = driver.findElement(By.xpath("//label[@for='showhiddenfilesToggle']"));
+        showHiddenFiles.click();
+
+        BrowserUtils.sleep(2);
+
+        if (showHiddenFiles.isEnabled()) {
+            Assert.assertTrue(showHiddenFiles.isDisplayed());
+        } else {
+            Assert.assertTrue(!showHiddenFiles.isDisplayed());
+        }
+
 
     }
 }
