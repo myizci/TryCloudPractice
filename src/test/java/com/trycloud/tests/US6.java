@@ -22,7 +22,7 @@ public class US6 extends TestBase {
     public void TC1_AccessToDeckModule() {
 
         //1.Login as a user
-        MainPage mainPage = new MainPage();
+        MainPage mainPage = new MainPage();//done by sladjan
 
         // 2.Click “Decks” module
         driver.findElement(By.xpath(mainPage.deckXpath)).click();
