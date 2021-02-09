@@ -46,8 +46,14 @@ public class MainPage extends BasePage {
     public String expectedContactsTitle = "Contacts - Trycloud QA";
     public String expectedCalendarTitle = " - Calendar - Trycloud QA";
     public String expectedDeckTitle = "Deck - Trycloud QA";
+    public String mainPageFilesAndFolders = "//span[@class='innernametext']";
 
-    //public  WebElement actualModuleName  = driver.findElement(By.xpath("//a[contains(.,'All files')]"));
 
-
+    //US3_7
+    public String actionIconXpath = "(//a[@class='action action-menu permanent'])[2]";
+    public String detailsXpath = "//span[.='Details']";
+    public String commentFolderXpath = "//a[@id='commentsTabView']";
+    public String commentBoxXpath = "(//div[@contenteditable='true'])[2]";
+    public String submitButtonXpath = "//input[@class='submit icon-confirm has-tooltip']";
+    public String folderAndFilesXpath = "//span[@class='innernametext']";
 }
