@@ -36,9 +36,9 @@ public class US3 extends TestBase {
 
         // list of favorites(rows): (//tbody)[3]/tr; a row in favorites: (//tbody)[3]/tr[1]
         //file added to favorite folder; WebElement
-        WebElement fileAddedToFavoriteWE=Driver.get().findElement(By.xpath(mainPage.fileAddedToFavoriteXpath));
+        WebElement fileAddedToFavoriteWE = Driver.get().findElement(By.xpath(mainPage.fileAddedToFavoriteXpath));
         //file added to favorite folder: String/Text
-        String fileAddedToFavorite=fileAddedToFavoriteWE.getText();
+        String fileAddedToFavorite = fileAddedToFavoriteWE.getText();
         // what is added to favorite
         System.out.println("fileAddedToFavorite = " + fileAddedToFavorite);
         Assert.assertTrue(fileAddedToFavoriteWE.isDisplayed());
@@ -54,7 +54,7 @@ public class US3 extends TestBase {
     //(Pre-condition: there should be at least 1 file is added to favorites table)
 
     @Test
-    public void TC4_removeFromFavorites(){
+    public void TC4_removeFromFavorites() {
 
         MainPage mainPage = new MainPage();
         Driver.get().findElement(By.xpath(mainPage.filesXpath)).click();
@@ -67,13 +67,11 @@ public class US3 extends TestBase {
         try {
             Driver.get().findElement(By.xpath(mainPage.fileAddedToFavoriteXpath));
             System.out.println("file exist");
-        }
-        catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             System.out.println("File is been removed");
         }
 
     }
-
 
 
     @Test
@@ -179,7 +177,6 @@ public class US3 extends TestBase {
     }
 
 
-
     @Test
     public void TC6_Create_Verify_Folder() {
         Faker faker = new Faker();
@@ -205,8 +202,9 @@ public class US3 extends TestBase {
             }
         }
 
-         Assert.assertFalse(folderFlag);
+        Assert.assertFalse(folderFlag);
     }
+
     @Test// Done by Dragisa
     public void testCase7_UploadingAFile() throws AWTException {
         //1. Login as a user: login is included in the TestBase.
@@ -283,7 +281,8 @@ public class US3 extends TestBase {
         Assert.assertTrue(fileFlag);
 
     }
-        @Test
+
+    @Test
     public void testCase8_2_writingAComment() {//Done by Dragisa
 
         //Test case #8 - verify users can write comments to files/folders.
@@ -291,7 +290,6 @@ public class US3 extends TestBase {
         MainPage mainPage = new MainPage();
         Faker faker = new Faker();
         String folderName = faker.name().firstName();
-
 
 
         driver.findElement(By.xpath(mainPage.filesXpath)).click();
@@ -303,7 +301,7 @@ public class US3 extends TestBase {
 
         driver.findElement(By.xpath(mainPage.addFolderButtonXpath)).click();
 
-        driver.findElement(By.xpath(mainPage.newFolderNameXpath)).sendKeys(folderName+ Keys.ENTER);
+        driver.findElement(By.xpath(mainPage.newFolderNameXpath)).sendKeys(folderName + Keys.ENTER);
 
         BrowserUtils.sleep(2);
         driver.navigate().refresh();
@@ -314,18 +312,14 @@ public class US3 extends TestBase {
         String folderName2 = folderName;
 
 
-        for(WebElement each : actionList){
+        for (WebElement each : actionList) {
             String eachName = each.getText();
-            WebElement threeDots = driver.findElement(By.xpath("//span[.='"+eachName+"']/../..//span[@class='icon icon-more']"));
-            if(each.getText().equals(folderName2)){
+            WebElement threeDots = driver.findElement(By.xpath("//span[.='" + eachName + "']/../..//span[@class='icon icon-more']"));
+            if (each.getText().equals(folderName2)) {
                 threeDots.click();
             }
 
         }
-
-
-
-
 
 
         //3. Click details
@@ -358,7 +352,104 @@ public class US3 extends TestBase {
         }
 
 
+    }
+
+
+    @Test
+    public void US3_TC10() throws AWTException {  // done by Alex
+
+        //Test case #10 - verify users see the app storage usage
+        //1. Login as a user
+        //2. Check the current storage usage
+        //3. Upload a file
+        //4. Refresh the page
+        //5. Verify the storage usage is increased
+
+
+        MainPage mainPage = new MainPage();
+        driver.findElement(By.xpath(mainPage.filesXpath)).click();
+        driver.findElement(By.xpath(mainPage.plusButtonXpath)).click();
+
+        WebElement uploadFile = driver.findElement(By.cssSelector("label[for='file_upload_start']"));
+       // driver.findElement(By.xpath(mainPage.addFileButtonXpath)).click();
+        BrowserUtils.sleep(5);
+        uploadFile.click();
+
+        File file = new File("/Users/alexandertsegaye/Desktop/HTML CLASS NOTES.docx");
+
+        StringSelection stringSelection = new StringSelection(file.getAbsolutePath());
+
+//Copy to clipboard
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+
+        Robot robot = new Robot();
+
+// Cmd + Tab is needed since it launches a Java app and the browser looses focus
+
+        robot.keyPress(KeyEvent.VK_META);
+
+        robot.keyPress(KeyEvent.VK_TAB);
+
+        robot.keyRelease(KeyEvent.VK_META);
+
+        robot.keyRelease(KeyEvent.VK_TAB);
+
+        robot.delay(500);
+
+//Open Goto window
+
+        robot.keyPress(KeyEvent.VK_META);
+
+        robot.keyPress(KeyEvent.VK_SHIFT);
+
+        robot.keyPress(KeyEvent.VK_G);
+
+        robot.keyRelease(KeyEvent.VK_META);
+
+        robot.keyRelease(KeyEvent.VK_SHIFT);
+
+        robot.keyRelease(KeyEvent.VK_G);
+
+//Paste the clipboard value
+
+        robot.keyPress(KeyEvent.VK_META);
+
+        robot.keyPress(KeyEvent.VK_V);
+
+        robot.keyRelease(KeyEvent.VK_META);
+
+        robot.keyRelease(KeyEvent.VK_V);
+
+//Press Enter key to close the Goto window and Upload window
+
+        robot.keyPress(KeyEvent.VK_ENTER);
+
+        robot.keyRelease(KeyEvent.VK_ENTER);
+
+        robot.delay(500);
+
+        robot.keyPress(KeyEvent.VK_ENTER);
+
+        robot.keyRelease(KeyEvent.VK_ENTER);
+
+        robot.delay(500);
+
+        BrowserUtils.sleep(2);
+
+        driver.navigate().refresh();
+
+        driver.findElement(By.xpath("//*[@id='appmenu']/li[2]")).click();
+
+        String sizeBeforeUpload = driver.findElement(By.xpath("//a[@class='icon-quota svg']/p")).getText();
+
+        /* upload code */
+        String sizeAfterUpload = driver.findElement(By.xpath("//a[@class='icon-quota svg']/p")).getText();
+
+        Assert.assertTrue(sizeAfterUpload.equals(sizeBeforeUpload));
+
+
+
 
     }
-}
 
+}
