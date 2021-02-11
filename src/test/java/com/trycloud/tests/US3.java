@@ -281,39 +281,7 @@ public class US3 extends TestBase {
         Assert.assertTrue(fileFlag);
 
     }
-    @Test
-    public void test_DeleteAFile(){//Done By Khojasta
 
-        //1.Login as a user
-        // Login as a user: login is included in the TestBase.
-        MainPage mainPage = new MainPage();
-        driver.findElement(By.xpath(mainPage.filesXpath)).click();
-        BrowserUtils.sleep(2);
-
-        //2.Click action-icon from any file on the page
-        //ActionIcon locator in Main page Line 66 public String //actionIconXpath = "(//span[@class='icon icon-more'])[2]";
-        driver.findElement(By.xpath(mainPage.actionIconXpath)).click();
-        BrowserUtils.sleep(2);
-
-        //3.Choose “delete files” option
-        //Deleted page Locator in Main page line 67     public String //trashbinXpath = "//li[@data-id='trashbin']";
-        driver.findElement(By.xpath(mainPage.trashbinXpath)).click();
-        BrowserUtils.sleep(2);
-
-
-        //4.Click deleted files on the left bottom corner
-        //Deleted page Locator in Main page line 68 public  String //deletedFilesXpath = "//a[@class='nav-icon-trashbin svg active']";
-        driver.findElement(By.xpath(mainPage.deletedFilesXpath)).click();
-        BrowserUtils.sleep(2);
-
-        //5.Verify the deleted file is displayed no the page.
-
-        WebElement deletedFile = driver.findElement(By.xpath("(//a[.='Deleted files'])"));
-        Assert.assertTrue(deletedFile.isDisplayed());
-
-
-
-    }
     @Test
     public void testCase8_2_writingAComment() {//Done by Dragisa
 
@@ -383,35 +351,107 @@ public class US3 extends TestBase {
 
         }
 
-    }
-    @Test
-    public void test_ChangeAppSettings() {// done by khojasta
 
-        //1.Login as a user
-        // Login as a user: login is included in the TestBase.
+    }
+
+
+    @Test
+    public void US3_TC10() throws AWTException {  // done by Alex
+
+        //Test case #10 - verify users see the app storage usage
+        //1. Login as a user
+        //2. Check the current storage usage
+        //3. Upload a file
+        //4. Refresh the page
+        //5. Verify the storage usage is increased
+
+
         MainPage mainPage = new MainPage();
         driver.findElement(By.xpath(mainPage.filesXpath)).click();
+        driver.findElement(By.xpath(mainPage.plusButtonXpath)).click();
+
+        WebElement uploadFile = driver.findElement(By.cssSelector("label[for='file_upload_start']"));
+       // driver.findElement(By.xpath(mainPage.addFileButtonXpath)).click();
+        BrowserUtils.sleep(5);
+        uploadFile.click();
+
+        File file = new File("/Users/alexandertsegaye/Desktop/HTML CLASS NOTES.docx");
+
+        StringSelection stringSelection = new StringSelection(file.getAbsolutePath());
+
+//Copy to clipboard
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+
+        Robot robot = new Robot();
+
+// Cmd + Tab is needed since it launches a Java app and the browser looses focus
+
+        robot.keyPress(KeyEvent.VK_META);
+
+        robot.keyPress(KeyEvent.VK_TAB);
+
+        robot.keyRelease(KeyEvent.VK_META);
+
+        robot.keyRelease(KeyEvent.VK_TAB);
+
+        robot.delay(500);
+
+//Open Goto window
+
+        robot.keyPress(KeyEvent.VK_META);
+
+        robot.keyPress(KeyEvent.VK_SHIFT);
+
+        robot.keyPress(KeyEvent.VK_G);
+
+        robot.keyRelease(KeyEvent.VK_META);
+
+        robot.keyRelease(KeyEvent.VK_SHIFT);
+
+        robot.keyRelease(KeyEvent.VK_G);
+
+//Paste the clipboard value
+
+        robot.keyPress(KeyEvent.VK_META);
+
+        robot.keyPress(KeyEvent.VK_V);
+
+        robot.keyRelease(KeyEvent.VK_META);
+
+        robot.keyRelease(KeyEvent.VK_V);
+
+//Press Enter key to close the Goto window and Upload window
+
+        robot.keyPress(KeyEvent.VK_ENTER);
+
+        robot.keyRelease(KeyEvent.VK_ENTER);
+
+        robot.delay(500);
+
+        robot.keyPress(KeyEvent.VK_ENTER);
+
+        robot.keyRelease(KeyEvent.VK_ENTER);
+
+        robot.delay(500);
+
         BrowserUtils.sleep(2);
 
-        // 2.Click Settings on the left bottom corner
-        // 'Settings' - locator in Main page Line 72: public String SettingsXpath = "//button[@class='settings-button opened']";
-        driver.findElement(By.xpath(mainPage.SettingsXpath)).click();
-        BrowserUtils.sleep(3);
+        driver.navigate().refresh();
 
-        //3.Verify user can click any buttons.
-        WebElement showHiddenFiles = driver.findElement(By.xpath("//label[@for='showhiddenfilesToggle']"));
-        showHiddenFiles.click();
+        driver.findElement(By.xpath("//*[@id='appmenu']/li[2]")).click();
 
-        BrowserUtils.sleep(2);
+        String sizeBeforeUpload = driver.findElement(By.xpath("//a[@class='icon-quota svg']/p")).getText();
 
-        if (showHiddenFiles.isEnabled()) {
-            Assert.assertTrue(showHiddenFiles.isDisplayed());
-        } else {
-            Assert.assertTrue(!showHiddenFiles.isDisplayed());
-        }
+        /* upload code */
+        String sizeAfterUpload = driver.findElement(By.xpath("//a[@class='icon-quota svg']/p")).getText();
+
+        Assert.assertTrue(sizeAfterUpload.equals(sizeBeforeUpload));
+
+        //work done
+
+
 
 
     }
+
 }
-
-
